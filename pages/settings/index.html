@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Settings | BPO Management System</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+        />
+        <link rel="stylesheet" href="../../assets/css/style.css" />
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Sidebar -->
+                <div class="col-md-3 col-lg-2 sidebar p-0">
+                    <div class="d-flex flex-column p-3">
+                        <h3 class="text-center my-4">🏢 BPO MS</h3>
+                        <hr />
+                        <ul class="nav nav-pills flex-column mb-auto">
+                            <li class="nav-item">
+                                <a
+                                    href="../dashboard/index.html"
+                                    class="nav-link"
+                                >
+                                    <i class="bi bi-speedometer2"></i> Dashboard
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a
+                                    href="../operations/orders.html"
+                                    class="nav-link"
+                                >
+                                    <i class="bi bi-cart"></i> Orders
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a
+                                    href="../operations/inventory.html"
+                                    class="nav-link"
+                                >
+                                    <i class="bi bi-box"></i> Inventory
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./employees.html" class="nav-link">
+                                    <i class="bi bi-people"></i> Employees
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./profile.html" class="nav-link">
+                                    <i class="bi bi-person-circle"></i> Profile
+                                </a>
+                            </li>
+                        </ul>
+                        <hr />
+                        <div class="dropdown">
+                            <a
+                                href="#"
+                                class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+                                id="dropdownUser"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                                <img
+                                    src="https://randomuser.me/api/portraits/men/32.jpg"
+                                    alt="User"
+                                    width="32"
+                                    height="32"
+                                    class="rounded-circle me-2"
+                                />
+                                <span id="username">User</span>
+                            </a>
+                            <ul
+                                class="dropdown-menu dropdown-menu-dark text-small shadow"
+                                aria-labelledby="dropdownUser"
+                            >
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="./profile.html"
+                                        >Profile</a
+                                    >
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="./index.html"
+                                        >Settings</a
+                                    >
+                                </li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="#"
+                                        onclick="logout()"
+                                        >Sign out</a
+                                    >
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="col-md-9 col-lg-10 ms-auto">
+                    <div class="container px-4 py-5">
+                        <div
+                            class="d-flex justify-content-between align-items-center mb-4"
+                        >
+                            <h2>System Settings</h2>
+                        </div>
+
+                        <!-- Settings Tabs -->
+                        <ul
+                            class="nav nav-tabs mb-4"
+                            id="settingsTabs"
+                            role="tablist"
+                        >
+                            <li class="nav-item" role="presentation">
+                                <button
+                                    class="nav-link active"
+                                    id="general-tab"
+                                    data-bs-toggle="tab"
+                                    data-bs-target="#general"
+                                    type="button"
+                                    role="tab"
+                                    aria-controls="general"
+                                    aria-selected="true"
+                                >
+                                    General
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button
+                                    class="nav-link"
+                                    id="appearance-tab"
+                                    data-bs-toggle="tab"
+                                    data-bs-target="#appearance"
+                                    type="button"
+                                    role="tab"
+                                    aria-controls="appearance"
+                                    aria-selected="false"
+                                >
+                                    Appearance
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button
+                                    class="nav-link"
+                                    id="notifications-tab"
+                                    data-bs-toggle="tab"
+                                    data-bs-target="#notifications"
+                                    type="button"
+                                    role="tab"
+                                    aria-controls="notifications"
+                                    aria-selected="false"
+                                >
+                                    Notifications
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button
+                                    class="nav-link"
+                                    id="security-tab"
+                                    data-bs-toggle="tab"
+                                    data-bs-target="#security"
+                                    type="button"
+                                    role="tab"
+                                    aria-controls="security"
+                                    aria-selected="false"
+                                >
+                                    Security
+                                </button>
+                            </li>
+                        </ul>
+
+                        <!-- Tab Content -->
+                        <div class="tab-content" id="settingsTabContent">
+                            <!-- General Settings -->
+                            <div
+                                class="tab-pane fade show active"
+                                id="general"
+                                role="tabpanel"
+                                aria-labelledby="general-tab"
+                            >
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            Company Information
+                                        </h5>
+                                        <form>
+                                            <div class="row mb-3">
+                                                <div class="col-md-6">
+                                                    <label
+                                                        for="companyName"
+                                                        class="form-label"
+                                                        >Company Name</label
+                                                    >
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        id="companyName"
+                                                        value="BPO Management Inc."
+                                                    />
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label
+                                                        for="companyEmail"
+                                                        class="form-label"
+                                                        >Company Email</label
+                                                    >
+                                                    <input
+                                                        type="email"
+                                                        class="form-control"
+                                                        id="companyEmail"
+                                                        value="info@bpo-management.com"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-6">
+                                                    <label
+                                                        for="companyPhone"
+                                                        class="form-label"
+                                                        >Phone Number</label
+                                                    >
+                                                    <input
+                                                        type="tel"
+                                                        class="form-control"
+                                                        id="companyPhone"
+                                                        value="(555) 987-6543"
+                                                    />
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label
+                                                        for="companyAddress"
+                                                        class="form-label"
+                                                        >Address</label
+                                                    >
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        id="companyAddress"
+                                                        value="123 Business St, Suite 456"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-4">
+                                                    <label
+                                                        for="companyCity"
+                                                        class="form-label"
+                                                        >City</label
+                                                    >
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        id="companyCity"
+                                                        value="Metropolis"
+                                                    />
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label
+                                                        for="companyState"
+                                                        class="form-label"
+                                                        >State/Province</label
+                                                    >
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        id="companyState"
+                                                        value="NY"
+                                                    />
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label
+                                                        for="companyZip"
+                                                        class="form-label"
+                                                        >Postal Code</label
+                                                    >
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        id="companyZip"
+                                                        value="10001"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="d-grid gap-2 d-md-flex justify-content-md-end"
+                                            >
+                                                <button
+                                                    type="button"
+                                                    class="btn btn-primary"
+                                                >
+                                                    Save Changes
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Appearance Settings -->
+                            <div
+                                class="tab-pane fade"
+                                id="appearance"
+                                role="tabpanel"
+                                aria-labelledby="appearance-tab"
+                            >
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            Theme Settings
+                                        </h5>
+                                        <div class="mb-3">
+                                            <label class="form-label"
+                                                >Theme Mode</label
+                                            >
+                                            <div class="form-check">
+                                                <input
+                                                    class="form-check-input"
+                                                    type="radio"
+                                                    name="themeMode"
+                                                    id="lightMode"
+                                                    value="light"
+                                                    checked
+                                                />
+                                                <label
+                                                    class="form-check-label"
+                                                    for="lightMode"
+                                                >
+                                                    Light Mode
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input
+                                                    class="form-check-input"
+                                                    type="radio"
+                                                    name="themeMode"
+                                                    id="darkMode"
+                                                    value="dark"
+                                                />
+                                                <label
+                                                    class="form-check-label"
+                                                    for="darkMode"
+                                                >
+                                                    Dark Mode
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input
+                                                    class="form-check-input"
+                                                    type="radio"
+                                                    name="themeMode"
+                                                    id="systemMode"
+                                                    value="system"
+                                                />
+                                                <label
+                                                    class="form-check-label"
+                                                    for="systemMode"
+                                                >
+                                                    Use System Preference
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label"
+                                                >Accent Color</label
+                                            >
+                                            <div class="d-flex gap-2 mb-2">
+                                                <div class="form-check">
+                                                    <input
+                                                        class="form-check-input"
+                                                        type="radio"
+                                                        name="accentColor"
+                                                        id="blueAccent"
+                                                        value="blue"
+                                                        checked
+                                                        style="
+                                                            background-color: #3498db;
+                                                        "
+                                                    />
+                                                    <label
+                                                        class="form-check-label"
+                                                        for="blueAccent"
+                                                    >
+                                                        Blue
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input
+                                                        class="form-check-input"
+                                                        type="radio"
+                                                        name="accentColor"
+                                                        id="greenAccent"
+                                                        value="green"
+                                                        style="
+                                                            background-color: #2ecc71;
+                                                        "
+                                                    />
+                                                    <label
+                                                        class="form-check-label"
+                                                        for="greenAccent"
+                                                    >
+                                                        Green
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input
+                                                        class="form-check-input"
+                                                        type="radio"
+                                                        name="accentColor"
+                                                        id="purpleAccent"
+                                                        value="purple"
+                                                        style="
+                                                            background-color: #9b59b6;
+                                                        "
+                                                    />
+                                                    <label
+                                                        class="form-check-label"
+                                                        for="purpleAccent"
+                                                    >
+                                                        Purple
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input
+                                                        class="form-check-input"
+                                                        type="radio"
+                                                        name="accentColor"
+                                                        id="redAccent"
+                                                        value="red"
+                                                        style="
+                                                            background-color: #e74c3c;
+                                                        "
+                                                    />
+                                                    <label
+                                                        class="form-check-label"
+                                                        for="redAccent"
+                                                    >
+                                                        Red
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="d-grid gap-2 d-md-flex justify-content-md-end"
+                                        >
+                                            <button
+                                                type="button"
+                                                class="btn btn-primary"
+                                            >
+                                                Apply Theme
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Notification Settings -->
+                            <div
+                                class="tab-pane fade"
+                                id="notifications"
+                                role="tabpanel"
+                                aria-labelledby="notifications-tab"
+                            >
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            Notification Settings
+                                        </h5>
+                                        <div
+                                            class="form-check form-switch mb-3"
+                                        >
+                                            <input
+                                                class="form-check-input"
+                                                type="checkbox"
+                                                id="emailOrderUpdates"
+                                                checked
+                                            />
+                                            <label
+                                                class="form-check-label"
+                                                for="emailOrderUpdates"
+                                                >Email notifications for order
+                                                updates</label
+                                            >
+                                        </div>
+                                        <div
+                                            class="form-check form-switch mb-3"
+                                        >
+                                            <input
+                                                class="form-check-input"
+                                                type="checkbox"
+                                                id="emailInventoryAlerts"
+                                                checked
+                                            />
+                                            <label
+                                                class="form-check-label"
+                                                for="emailInventoryAlerts"
+                                                >Email notifications for
+                                                inventory alerts</label
+                                            >
+                                        </div>
+                                        <div
+                                            class="form-check form-switch mb-3"
+                                        >
+                                            <input
+                                                class="form-check-input"
+                                                type="checkbox"
+                                                id="desktopNotifications"
+                                                checked
+                                            />
+                                            <label
+                                                class="form-check-label"
+                                                for="desktopNotifications"
+                                                >Desktop notifications</label
+                                            >
+                                        </div>
+                                        <div
+                                            class="form-check form-switch mb-3"
+                                        >
+                                            <input
+                                                class="form-check-input"
+                                                type="checkbox"
+                                                id="soundAlerts"
+                                            />
+                                            <label
+                                                class="form-check-label"
+                                                for="soundAlerts"
+                                                >Sound alerts</label
+                                            >
+                                        </div>
+                                        <div class="mb-3">
+                                            <label
+                                                for="digestFrequency"
+                                                class="form-label"
+                                                >Email Digest Frequency</label
+                                            >
+                                            <select
+                                                class="form-select"
+                                                id="digestFrequency"
+                                            >
+                                                <option value="never">
+                                                    Never
+                                                </option>
+                                                <option value="daily" selected>
+                                                    Daily
+                                                </option>
+                                                <option value="weekly">
+                                                    Weekly
+                                                </option>
+                                                <option value="monthly">
+                                                    Monthly
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div
+                                            class="d-grid gap-2 d-md-flex justify-content-md-end"
+                                        >
+                                            <button
+                                                type="button"
+                                                class="btn btn-primary"
+                                            >
+                                                Save Preferences
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Security Settings -->
+                            <div
+                                class="tab-pane fade"
+                                id="security"
+                                role="tabpanel"
+                                aria-labelledby="security-tab"
+                            >
+                                <div class="card mb-4">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            Password Settings
+                                        </h5>
+                                        <form>
+                                            <div class="mb-3">
+                                                <label
+                                                    for="minPasswordLength"
+                                                    class="form-label"
+                                                    >Minimum Password
+                                                    Length</label
+                                                >
+                                                <select
+                                                    class="form-select"
+                                                    id="minPasswordLength"
+                                                >
+                                                    <option value="6">
+                                                        6 characters
+                                                    </option>
+                                                    <option value="8" selected>
+                                                        8 characters
+                                                    </option>
+                                                    <option value="10">
+                                                        10 characters
+                                                    </option>
+                                                    <option value="12">
+                                                        12 characters
+                                                    </option>
+                                                </select>
+                                            </div>
+                                            <div class="form-check mb-3">
+                                                <input
+                                                    class="form-check-input"
+                                                    type="checkbox"
+                                                    id="requireUppercase"
+                                                    checked
+                                                />
+                                                <label
+                                                    class="form-check-label"
+                                                    for="requireUppercase"
+                                                >
+                                                    Require uppercase letters
+                                                </label>
+                                            </div>
+                                            <div class="form-check mb-3">
+                                                <input
+                                                    class="form-check-input"
+                                                    type="checkbox"
+                                                    id="requireNumbers"
+                                                    checked
+                                                />
+                                                <label
+                                                    class="form-check-label"
+                                                    for="requireNumbers"
+                                                >
+                                                    Require numbers
+                                                </label>
+                                            </div>
+                                            <div class="form-check mb-3">
+                                                <input
+                                                    class="form-check-input"
+                                                    type="checkbox"
+                                                    id="requireSpecialChars"
+                                                />
+                                                <label
+                                                    class="form-check-label"
+                                                    for="requireSpecialChars"
+                                                >
+                                                    Require special characters
+                                                </label>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label
+                                                    for="passwordExpiry"
+                                                    class="form-label"
+                                                    >Password Expiry</label
+                                                >
+                                                <select
+                                                    class="form-select"
+                                                    id="passwordExpiry"
+                                                >
+                                                    <option value="never">
+                                                        Never
+                                                    </option>
+                                                    <option value="30" selected>
+                                                        30 days
+                                                    </option>
+                                                    <option value="60">
+                                                        60 days
+                                                    </option>
+                                                    <option value="90">
+                                                        90 days
+                                                    </option>
+                                                </select>
+                                            </div>
+                                            <div
+                                                class="d-grid gap-2 d-md-flex justify-content-md-end"
+                                            >
+                                                <button
+                                                    type="button"
+                                                    class="btn btn-primary"
+                                                >
+                                                    Save Settings
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            Login Security
+                                        </h5>
+                                        <div
+                                            class="form-check form-switch mb-3"
+                                        >
+                                            <input
+                                                class="form-check-input"
+                                                type="checkbox"
+                                                id="twoFactorAuth"
+                                            />
+                                            <label
+                                                class="form-check-label"
+                                                for="twoFactorAuth"
+                                                >Enable Two-Factor
+                                                Authentication</label
+                                            >
+                                        </div>
+                                        <div class="mb-3">
+                                            <label
+                                                for="sessionTimeout"
+                                                class="form-label"
+                                                >Session Timeout</label
+                                            >
+                                            <select
+                                                class="form-select"
+                                                id="sessionTimeout"
+                                            >
+                                                <option value="15">
+                                                    15 minutes
+                                                </option>
+                                                <option value="30" selected>
+                                                    30 minutes
+                                                </option>
+                                                <option value="60">
+                                                    1 hour
+                                                </option>
+                                                <option value="120">
+                                                    2 hours
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div
+                                            class="form-check form-switch mb-3"
+                                        >
+                                            <input
+                                                class="form-check-input"
+                                                type="checkbox"
+                                                id="loginAttempts"
+                                                checked
+                                            />
+                                            <label
+                                                class="form-check-label"
+                                                for="loginAttempts"
+                                                >Limit failed login
+                                                attempts</label
+                                            >
+                                        </div>
+                                        <div
+                                            class="d-grid gap-2 d-md-flex justify-content-md-end"
+                                        >
+                                            <button
+                                                type="button"
+                                                class="btn btn-primary"
+                                            >
+                                                Save Security Settings
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="../../assets/js/auth.js"></script>
+    </body>
+</html>
