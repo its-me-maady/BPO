@@ -1,28 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Dark mode toggle
-    const darkModeToggle = document.getElementById("darkModeToggle");
-
-    if (darkModeToggle) {
-        // Check if user has a dark mode preference
-        const isDarkMode = localStorage.getItem("darkMode") === "true";
-
-        // Set initial state
-        if (isDarkMode) {
-            document.body.classList.add("dark-mode");
-            darkModeToggle.checked = true;
-        }
-
-        // Toggle dark mode
-        darkModeToggle.addEventListener("change", function () {
-            if (this.checked) {
-                document.body.classList.add("dark-mode");
-                localStorage.setItem("darkMode", "true");
-            } else {
-                document.body.classList.remove("dark-mode");
-                localStorage.setItem("darkMode", "false");
-            }
-        });
-    }
+    // Dark mode toggle is now handled by theme.js
 
     // Display logged in user's name
     const usernameElement = document.getElementById("username");

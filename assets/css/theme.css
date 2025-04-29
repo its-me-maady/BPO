@@ -1,0 +1,151 @@
+/* Theme CSS for BPO Management System */
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+/* Dark mode sidebar */
+body.dark-mode .sidebar {
+    background-color: #1e1e1e;
+}
+
+/* Dark mode cards */
+body.dark-mode .card {
+    background-color: #2d2d2d;
+    border-color: #3a3a3a;
+}
+
+body.dark-mode .card-header {
+    background-color: #323232;
+    border-bottom-color: #3a3a3a;
+}
+
+/* Dark mode tables */
+body.dark-mode .table {
+    color: #e0e0e0;
+}
+
+body.dark-mode .table thead th {
+    background-color: #2a2a2a;
+    border-bottom-color: #3a3a3a;
+}
+
+body.dark-mode .table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .table-hover tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.075);
+}
+
+/* Dark mode form controls */
+body.dark-mode .form-control,
+body.dark-mode .form-select {
+    background-color: #2d2d2d;
+    border-color: #3a3a3a;
+    color: #e0e0e0;
+}
+
+body.dark-mode .form-control:focus,
+body.dark-mode .form-select:focus {
+    background-color: #333;
+    border-color: #4d4d4d;
+}
+
+body.dark-mode .form-check-input {
+    background-color: #2d2d2d;
+    border-color: #3a3a3a;
+}
+
+/* Dark mode dropdown */
+body.dark-mode .dropdown-menu {
+    background-color: #2d2d2d;
+    border-color: #3a3a3a;
+}
+
+body.dark-mode .dropdown-item {
+    color: #e0e0e0;
+}
+
+body.dark-mode .dropdown-item:hover,
+body.dark-mode .dropdown-item:focus {
+    background-color: #3a3a3a;
+}
+
+/* Dark mode modal */
+body.dark-mode .modal-content {
+    background-color: #2d2d2d;
+    border-color: #3a3a3a;
+}
+
+body.dark-mode .modal-header,
+body.dark-mode .modal-footer {
+    border-color: #3a3a3a;
+}
+
+/* Dark mode nav tabs */
+body.dark-mode .nav-tabs {
+    border-bottom-color: #3a3a3a;
+}
+
+body.dark-mode .nav-tabs .nav-link {
+    color: #e0e0e0;
+}
+
+body.dark-mode .nav-tabs .nav-link.active {
+    background-color: #2d2d2d;
+    border-color: #3a3a3a #3a3a3a #2d2d2d;
+    color: #ffffff;
+}
+
+/* Dark mode code and pre */
+body.dark-mode code,
+body.dark-mode pre {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+
+/* Dark mode buttons */
+body.dark-mode .btn-outline-secondary {
+    color: #c0c0c0;
+    border-color: #3a3a3a;
+}
+
+body.dark-mode .btn-outline-secondary:hover {
+    background-color: #3a3a3a;
+    color: #ffffff;
+}
+
+/* Dark mode switch control */
+body.dark-mode .form-switch .form-check-input {
+    background-color: #3a3a3a;
+}
+
+/* Additional dark accents for stat cards */
+body.dark-mode .bg-primary.text-white {
+    background-color: #1a4b78 !important;
+}
+
+body.dark-mode .bg-success.text-white {
+    background-color: #1a6340 !important;
+}
+
+body.dark-mode .bg-warning.text-white {
+    background-color: #8a5d00 !important;
+}
+
+body.dark-mode .bg-danger.text-white {
+    background-color: #822727 !important;
+}
+
+/* Dark mode system preference styles */
+@media (prefers-color-scheme: dark) {
+    body.system-theme {
+        background-color: #121212;
+        color: #e0e0e0;
+    }
+
+    /* Add all the same styles as above but for .system-theme */
+}
